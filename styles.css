@@ -1,0 +1,187 @@
+/* Variables */
+
+:root {
+  --basic-pading: 2rem 1rem;
+  --basic-margin: 20px;
+  --basic-font-size: 16pt;
+  --contain-width: 1200px;
+}
+
+/* Setup Styles */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  font-size: var(--basic-font-size);
+  font-family: sans-serif;
+  background-color: #eee;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+  margin-bottom: var(--basic-margin);
+  line-height: 20pt;
+}
+
+h1 {
+  font-size: 50pt;
+  line-height: 60pt;
+}
+
+h2 {
+  font-size: 40pt;
+  line-height: 50pt;
+}
+
+h3 {
+  font-size: 26pt;
+  line-height: 30pt;
+}
+
+h4 {
+  font-size: 20pt;
+  line-height: 30pt;
+}
+
+h5 {
+  font-size: 16pt;
+  line-height: 20pt;
+}
+
+h6 {
+  font-size: 12pt;
+  line-height: 16pt;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .recent-posts {
+    grid-template-columns: 100%!important;
+  }
+  .recent-posts > .recent-post:first-child {
+    grid-row-start: auto!important;
+    grid-row-end: auto!important;
+  }
+
+  .recent-posts > .recent-post:last-child {
+    grid-column-start: auto!important;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .recent-posts {
+    grid-template-rows: 250px 250px 250px!important;
+  }
+}
+
+@media screen and (max-width: 1200px )  {
+  :root{
+    --contain-width: 100%;
+  }
+  .latest-news {
+    align-items: flex-start;
+    justify-content: space-around!important;
+  }
+}
+
+/* Nav */
+
+.nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5em 1rem;
+  color: #888;
+  flex-wrap: wrap;
+}
+
+.nav > li { margin-right: 1em; }
+
+.primary-nav {
+  background-color: black;
+  min-height: 30px;
+  font-size: 10pt;
+}
+
+.primary-nav > li:nth-child(8) {
+  margin-left: auto;
+}
+
+.secondary-nav {
+  min-height: 60px;
+  font-size: 11pt;
+  box-shadow: 0 1px 1px 0px #ccc;
+  text-transform: uppercase;
+  background-color: white;
+}
+
+.secondary-nav > li:last-child { margin-right: auto;}
+
+/* Recent Posts */
+
+.recent-posts {
+  display: grid;
+  margin: 2rem 1rem;
+  grid-template-columns: 65% auto;
+  grid-template-rows: 250px 250px;
+  grid-gap: 5px;
+}
+
+.recent-post{
+  position: relative;
+  padding: 1rem;
+  color: white;
+  text-shadow: 2px 2px black;
+  font-weight: 600;
+  background-position: 50% 50%;
+  background-size: cover;
+  box-shadow: inset 0 0 115px 50px black;
+  height: 100%;
+}
+
+.recent-posts > .recent-post:first-child {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.recent-posts > .recent-post:last-child {
+  grid-column-start: 2;
+}
+
+.post-heading {
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  right: 4px;
+  padding: 0 1rem;
+}
+
+.post-heading > * {
+  position: relative;
+  top: 50%;
+}
+
+
+/* Lastest News */
+.latest-news {
+  width: var(--contain-width);
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.latest-news > header {
+  flex: 0 0 100%;
+}
+
+.latest {
+  flex: 0 0 275px;
+  margin-bottom: 1rem;
+}
+
+.latest img {
+  width: 100%;
+  height: 150px;
+}
